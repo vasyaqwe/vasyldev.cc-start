@@ -1,0 +1,54 @@
+{
+   "$schema": "https://biomejs.dev/schemas/1.8.2/schema.json",
+   "formatter": {
+      "enabled": true,
+      "formatWithErrors": false,
+      "indentStyle": "space",
+      "indentWidth": 3,
+      "lineEnding": "lf",
+      "lineWidth": 80,
+      "attributePosition": "multiline",
+      "ignore": [".next/**"]
+   },
+   "organizeImports": {
+      "enabled": true
+   },
+   "linter": {
+      "enabled": true,
+      "rules": {
+         "recommended": true,
+         "style": {
+            "noUnusedTemplateLiteral": "off"
+         },
+         "correctness": {
+            "noUnusedImports": "error"
+         },
+         "a11y": {
+            "noSvgWithoutTitle": "off"
+         },
+         "suspicious": {
+            "noArrayIndexKey": "off"
+         },
+         "nursery": {
+            "useSortedClasses": {
+               "level": "info",
+               "options": {
+                  "functions": ["clsx", "cva", "tw", "cn"]
+               }
+            }
+         }
+      },
+      "ignore": ["routeTree.gen.ts", ".vinxi/**"]
+   },
+   "javascript": {
+      "formatter": {
+         "jsxQuoteStyle": "double",
+         "trailingCommas": "all",
+         "semicolons": "asNeeded",
+         "arrowParentheses": "always",
+         "bracketSpacing": true,
+         "bracketSameLine": false,
+         "quoteStyle": "double"
+      }
+   }
+}
