@@ -32,5 +32,5 @@ function Home() {
    const router = useRouter()
    const state = Route.useLoaderData()
 
-   return <div>Add 1 to JSON.stringify(state)</div>
+   return <div>Add 1 to JSON.stringify{state}</div>
 }
