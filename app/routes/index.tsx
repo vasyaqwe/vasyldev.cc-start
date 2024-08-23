@@ -1,32 +1,30 @@
-import * as fs from "node:fs"
 import { buttonVariants } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Icons } from "@/components/ui/icons"
 import { cn } from "@/lib/utils"
 import { ArrowRightCircleIcon, LinkIcon } from "@heroicons/react/24/outline"
 import { createFileRoute } from "@tanstack/react-router"
-import { createServerFn } from "@tanstack/start"
 
-const filePath = "count.txt"
+// const filePath = "count.txt"
 
-async function readCount() {
-   return Number.parseInt(
-      await fs.promises.readFile(filePath, "utf-8").catch(() => "0"),
-   )
-}
+// async function readCount() {
+//    return Number.parseInt(
+//       await fs.promises.readFile(filePath, "utf-8").catch(() => "0"),
+//    )
+// }
 
-const _getCount = createServerFn("GET", async () => {
-   const data = await fetch(
-      "https://jsonplaceholder.typicode.com/todos/1",
-   ).then((response) => response.json())
+// const _getCount = createServerFn("GET", async () => {
+//    const data = await fetch(
+//       "https://jsonplaceholder.typicode.com/todos/1",
+//    ).then((response) => response.json())
 
-   return data
-})
+//    return data
+// })
 
-const _updateCount = createServerFn("POST", async (addBy: number) => {
-   const count = await readCount()
-   await fs.promises.writeFile(filePath, `${count + addBy}`)
-})
+// const _updateCount = createServerFn("POST", async (addBy: number) => {
+//    const count = await readCount()
+//    await fs.promises.writeFile(filePath, `${count + addBy}`)
+// })
 
 export const Route = createFileRoute("/")({
    component: Component,
