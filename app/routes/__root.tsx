@@ -54,17 +54,12 @@ function RootComponent() {
 
 function RootDocument({ children }: { children: React.ReactNode }) {
    return (
-      <Html
-         className={cn(
-            "",
-            // font.variable,
-         )}
-      >
+      <Html>
          <Head>
             <Meta />
          </Head>
          <Body>
-            <div className="pt-5 font-primary text-sm leading-6 antialiased">
+            <div className="pt-5 font-primary text-sm leading-5 antialiased">
                <header className="container flex items-center justify-between pb-4">
                   <Icons.logo className="size-[24px] opacity-65" />
                   <nav>

@@ -9,7 +9,7 @@ import { createFileRoute } from "@tanstack/react-router"
 
 // async function readCount() {
 //    return Number.parseInt(
-//       await fs.promises.readFile(filePath, "utf-8").catch(() => "0"),
+//       await fs.promises.readFile(filePath, "utf-8")ignore.catch(() => "0"),
 //    )
 // }
 
@@ -362,7 +362,7 @@ function Component() {
                   )}
                   rel="noreferrer"
                >
-                  view all
+                  <span className="-mt-0.5">view all</span>
                   <ArrowRightCircleIcon className="size-4" />
                </a>
             </div>
