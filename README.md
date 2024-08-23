@@ -1,15 +1,5 @@
-# vasyldev.cc-start
+# [Personal Site](https://vasyldev.cc)
 
-To install dependencies:
+Built with TanStack & Vercel
 
-```bash
-bun install
-```
-
-To run:
-
-```bash
-bun run index.ts
-```
-
-This project was created using `bun init` in bun v1.1.15. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+# [Me on Upwork](https://www.upwork.com/freelancers/~015c1b113a62e11b13)
