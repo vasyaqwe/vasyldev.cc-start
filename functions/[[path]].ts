@@ -3,6 +3,7 @@ import {
    createStartHandler,
    defaultStreamHandler,
 } from "@tanstack/start/server"
+import type { EventHandlerRequest, H3Event } from "vinxi/http"
 import { createRouter } from "../app/router"
 
 const startHandler = createStartHandler({
@@ -10,9 +11,9 @@ const startHandler = createStartHandler({
    getRouterManifest,
 })(defaultStreamHandler)
 
-// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-export async function onRequest(context: { request: any }) {
+export async function onRequest(context: {
+   request: H3Event<EventHandlerRequest>
+}) {
    const response = await startHandler(context.request)
-
    return response
 }
