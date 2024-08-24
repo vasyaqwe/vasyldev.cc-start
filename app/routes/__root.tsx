@@ -16,7 +16,6 @@ import type * as React from "react"
 
 export const Route = createRootRoute({
    meta: ({ match }) => {
-      console.log(match)
       return [
          {
             charSet: "utf-8",
@@ -89,7 +88,7 @@ export const Route = createRootRoute({
                deleted.
             </p>
             <Link
-               href={"/"}
+               to={"/"}
                className={buttonVariants()}
             >
                Back home
