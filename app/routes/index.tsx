@@ -263,7 +263,7 @@ function Component() {
                         <LinkIcon className="ml-1 inline-block size-4" />
                      </a>
                   </h3>
-                  <p className="mt-1">
+                  <p className="mt-2">
                      A landing page for a software development company.
                   </p>
                </div>
@@ -303,7 +303,7 @@ function Component() {
                         <LinkIcon className="ml-1 inline-block size-4" />
                      </a>
                   </h3>
-                  <p className="mt-1">
+                  <p className="mt-2">
                      A real-time messaging & issue reporting app for teams.
                   </p>
                </div>
@@ -343,7 +343,7 @@ function Component() {
                         <LinkIcon className="ml-1 inline-block size-4" />
                      </a>
                   </h3>
-                  <p className="mt-1">
+                  <p className="mt-2">
                      A landing page for a non-profit organization providing aid
                      in Ukraine.
                   </p>

@@ -1,10 +1,9 @@
 import * as React from "react"
-
 import { cn } from "@/lib/utils"
 import { type VariantProps, cva } from "class-variance-authority"
 
 const cardVariants = cva(
-   `border bg-muted border-border/40 text-muted-foreground p-3 rounded-2xl`,
+   `border bg-muted border-border/60 text-muted-foreground p-3 rounded-2xl`,
    {
       variants: {
          variant: {

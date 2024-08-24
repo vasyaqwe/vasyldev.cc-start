@@ -19,6 +19,7 @@ const config: Config = {
             xs: "0.85rem",
             sm: "0.9175rem",
             base: "0.965rem",
+            lg: "1.05rem",
          },
          colors: {
             border: "hsl(var(--border))",
