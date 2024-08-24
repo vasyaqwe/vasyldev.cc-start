@@ -14,7 +14,7 @@ const buttonVariants = cva(
             outline: `bg-background hover:border-border border-border/70 backdrop-blur-md hover:bg-border/10 `,
          },
          size: {
-            default: "h-9 px-2.5",
+            default: "h-9 rounded-[10px] px-2.5",
             sm: "h-8 rounded-[0.6rem] px-2",
             lg: "h-9 gap-2 rounded-xl px-3.5",
             icon: "size-8 gap-0",
