@@ -19,6 +19,7 @@ export const Route = createFileRoute("/hello")({
          { name: "googlebot", content: "index, follow" },
       ]
    },
+   pendingComponent: () => <div>Loading...</div>,
 })
 
 function Component() {
