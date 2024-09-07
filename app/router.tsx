@@ -5,10 +5,8 @@ export function createRouter() {
    const router = createTanStackRouter({
       routeTree,
       defaultPreload: "intent",
-      defaultStaleTime: 1,
-      context: {
-         assets: [],
-      },
+      defaultPendingMs: 100,
+      defaultPendingMinMs: 200,
    })
 
    return router

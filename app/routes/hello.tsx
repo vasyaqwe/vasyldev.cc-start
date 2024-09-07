@@ -4,7 +4,7 @@ const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 
 export const Route = createFileRoute("/hello")({
    loader: async () => {
-      await wait(5000)
+      await wait(2000)
 
       return "OK"
    },

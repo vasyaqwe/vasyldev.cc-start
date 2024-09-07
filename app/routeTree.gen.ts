@@ -13,6 +13,7 @@
 import { Route as rootRoute } from './routes/__root'
 import { Route as HelloImport } from './routes/hello'
 import { Route as IndexImport } from './routes/index'
+import { Route as Hello2IndexImport } from './routes/hello2/index'
 
 // Create/Update Routes
 
@@ -23,6 +24,11 @@ const HelloRoute = HelloImport.update({
 
 const IndexRoute = IndexImport.update({
   path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const Hello2IndexRoute = Hello2IndexImport.update({
+  path: '/hello2/',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -44,12 +50,61 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HelloImport
       parentRoute: typeof rootRoute
     }
+    '/hello2/': {
+      id: '/hello2/'
+      path: '/hello2'
+      fullPath: '/hello2'
+      preLoaderRoute: typeof Hello2IndexImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
 // Create and export the route tree
 
-export const routeTree = rootRoute.addChildren({ IndexRoute, HelloRoute })
+export interface FileRoutesByFullPath {
+  '/': typeof IndexRoute
+  '/hello': typeof HelloRoute
+  '/hello2': typeof Hello2IndexRoute
+}
+
+export interface FileRoutesByTo {
+  '/': typeof IndexRoute
+  '/hello': typeof HelloRoute
+  '/hello2': typeof Hello2IndexRoute
+}
+
+export interface FileRoutesById {
+  __root__: typeof rootRoute
+  '/': typeof IndexRoute
+  '/hello': typeof HelloRoute
+  '/hello2/': typeof Hello2IndexRoute
+}
+
+export interface FileRouteTypes {
+  fileRoutesByFullPath: FileRoutesByFullPath
+  fullPaths: '/' | '/hello' | '/hello2'
+  fileRoutesByTo: FileRoutesByTo
+  to: '/' | '/hello' | '/hello2'
+  id: '__root__' | '/' | '/hello' | '/hello2/'
+  fileRoutesById: FileRoutesById
+}
+
+export interface RootRouteChildren {
+  IndexRoute: typeof IndexRoute
+  HelloRoute: typeof HelloRoute
+  Hello2IndexRoute: typeof Hello2IndexRoute
+}
+
+const rootRouteChildren: RootRouteChildren = {
+  IndexRoute: IndexRoute,
+  HelloRoute: HelloRoute,
+  Hello2IndexRoute: Hello2IndexRoute,
+}
+
+export const routeTree = rootRoute
+  ._addFileChildren(rootRouteChildren)
+  ._addFileTypes<FileRouteTypes>()
 
 /* prettier-ignore-end */
 
@@ -60,7 +115,8 @@ export const routeTree = rootRoute.addChildren({ IndexRoute, HelloRoute })
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/hello"
+        "/hello",
+        "/hello2/"
       ]
     },
     "/": {
@@ -68,6 +124,9 @@ export const routeTree = rootRoute.addChildren({ IndexRoute, HelloRoute })
     },
     "/hello": {
       "filePath": "hello.tsx"
+    },
+    "/hello2/": {
+      "filePath": "hello2/index.tsx"
     }
   }
 }

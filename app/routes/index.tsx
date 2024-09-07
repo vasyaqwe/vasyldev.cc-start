@@ -118,6 +118,7 @@ function Component() {
          <section className="mt-12 md:mt-16">
             <h1 className=" text-3xl">
                <Link to="/hello">hello</Link>
+               <Link to="/hello2">hello2</Link>
                <img
                   src={"/avatar.jpg"}
                   alt="Vasyl's avatar"
