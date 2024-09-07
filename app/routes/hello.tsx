@@ -1,7 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router"
 
+const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
+
 export const Route = createFileRoute("/hello")({
-   component: () => <div>Hello /hello!</div>,
+   loader: async () => {
+      await wait(5000)
+
+      return "OK"
+   },
+   component: Component,
    meta: () => {
       return [
          {
@@ -13,3 +20,8 @@ export const Route = createFileRoute("/hello")({
       ]
    },
 })
+
+function Component() {
+   const data = Route.useLoaderData()
+   return <div>Hello {data}!</div>
+}
