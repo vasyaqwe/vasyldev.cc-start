@@ -10,46 +10,83 @@
 
 // Import Routes
 
-import { Route as rootRoute } from './routes/__root'
-import { Route as HelloImport } from './routes/hello'
-import { Route as IndexImport } from './routes/index'
+import { Route as rootRoute } from "./routes/__root"
+import { Route as HelloImport } from "./routes/hello"
+import { Route as IndexImport } from "./routes/index"
 
 // Create/Update Routes
 
 const HelloRoute = HelloImport.update({
-  path: '/hello',
-  getParentRoute: () => rootRoute,
+   path: "/hello",
+   getParentRoute: () => rootRoute,
 } as any)
 
 const IndexRoute = IndexImport.update({
-  path: '/',
-  getParentRoute: () => rootRoute,
+   path: "/",
+   getParentRoute: () => rootRoute,
 } as any)
 
 // Populate the FileRoutesByPath interface
 
-declare module '@tanstack/react-router' {
-  interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexImport
-      parentRoute: typeof rootRoute
-    }
-    '/hello': {
-      id: '/hello'
-      path: '/hello'
-      fullPath: '/hello'
-      preLoaderRoute: typeof HelloImport
-      parentRoute: typeof rootRoute
-    }
-  }
+declare module "@tanstack/react-router" {
+   interface FileRoutesByPath {
+      "/": {
+         id: "/"
+         path: "/"
+         fullPath: "/"
+         preLoaderRoute: typeof IndexImport
+         parentRoute: typeof rootRoute
+      }
+      "/hello": {
+         id: "/hello"
+         path: "/hello"
+         fullPath: "/hello"
+         preLoaderRoute: typeof HelloImport
+         parentRoute: typeof rootRoute
+      }
+   }
 }
 
 // Create and export the route tree
 
-export const routeTree = rootRoute.addChildren({ IndexRoute, HelloRoute })
+export interface FileRoutesByFullPath {
+   "/": typeof IndexRoute
+   "/hello": typeof HelloRoute
+}
+
+export interface FileRoutesByTo {
+   "/": typeof IndexRoute
+   "/hello": typeof HelloRoute
+}
+
+export interface FileRoutesById {
+   __root__: typeof rootRoute
+   "/": typeof IndexRoute
+   "/hello": typeof HelloRoute
+}
+
+export interface FileRouteTypes {
+   fileRoutesByFullPath: FileRoutesByFullPath
+   fullPaths: "/" | "/hello"
+   fileRoutesByTo: FileRoutesByTo
+   to: "/" | "/hello"
+   id: "__root__" | "/" | "/hello"
+   fileRoutesById: FileRoutesById
+}
+
+export interface RootRouteChildren {
+   IndexRoute: typeof IndexRoute
+   HelloRoute: typeof HelloRoute
+}
+
+const rootRouteChildren: RootRouteChildren = {
+   IndexRoute: IndexRoute,
+   HelloRoute: HelloRoute,
+}
+
+export const routeTree = rootRoute
+   ._addFileChildren(rootRouteChildren)
+   ._addFileTypes<FileRouteTypes>()
 
 /* prettier-ignore-end */
 

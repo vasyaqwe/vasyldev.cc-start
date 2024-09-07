@@ -1,0 +1,16 @@
+**/node_modules
+node_modules
+**/.vinxi
+.vinxi
+**/.output
+.output
+**/.git
+.git
+**/.env
+.env
+**/README.md
+.github/
+Dockerfile
+.nvmrc
+.vscode
+npm-debug.log
