@@ -3,6 +3,7 @@ import { Card } from "@/components/ui/card"
 import { Icons } from "@/components/ui/icons"
 import { cn } from "@/lib/utils"
 import { ArrowRightCircleIcon, LinkIcon } from "@heroicons/react/24/outline"
+import { Link } from "@tanstack/react-router"
 import { createFileRoute } from "@tanstack/react-router"
 
 // const filePath = "count.txt"
@@ -116,6 +117,7 @@ function Component() {
       <>
          <section className="mt-12 md:mt-16">
             <h1 className=" text-3xl">
+               <Link to="/hello">hello</Link>
                <img
                   src={"/avatar.jpg"}
                   alt="Vasyl's avatar"

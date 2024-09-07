@@ -94,6 +94,9 @@ web_modules/
 
 *.tgz
 
+.vinxi
+.output
+
 # Yarn Integrity file
 
 .yarn-integrity
