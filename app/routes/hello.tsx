@@ -1,3 +1,4 @@
+import { getServerTime } from "@/lib/functions"
 import { createFileRoute } from "@tanstack/react-router"
 
 const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
@@ -5,7 +6,7 @@ const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 export const Route = createFileRoute("/hello")({
    loader: async () => {
       await wait(2000)
-
+      getServerTime()
       return "OK"
    },
    component: Component,
@@ -23,6 +24,5 @@ export const Route = createFileRoute("/hello")({
 })
 
 function Component() {
-   const data = Route.useLoaderData()
-   return <div>Hello {data}!</div>
+   return <div>Hello hello!</div>
 }

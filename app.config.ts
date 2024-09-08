@@ -3,11 +3,7 @@ import tsConfigPaths from "vite-tsconfig-paths"
 
 export default defineConfig({
    vite: {
-      plugins: () => [
-         tsConfigPaths({
-            projects: ["./tsconfig.json"],
-         }),
-      ],
+      plugins: () => [tsConfigPaths()],
    },
    // deployment: {
    //    preset: "bun",
