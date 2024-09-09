@@ -5,7 +5,7 @@ export default defineConfig({
    vite: {
       plugins: () => [tsConfigPaths()],
    },
-   // deployment: {
-   //    preset: "bun",
-   // },
+   deployment: {
+      preset: "bun",
+   },
 })
